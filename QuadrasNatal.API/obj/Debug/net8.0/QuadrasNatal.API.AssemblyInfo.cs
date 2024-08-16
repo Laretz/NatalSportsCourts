@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuadrasNatal.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c777668e7399d06bb3ddf3da7719e7d5cc17e62c")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuadrasNatal.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuadrasNatal.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
