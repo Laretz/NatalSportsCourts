@@ -1,0 +1,34 @@
+->Criação API QuadrasNatal
+
+dotnet new webapi -n QuadrasNatal.API -o QuadrasNatal.API --use-controllers
+dotnet new classlib -n QuadrasNatal.Application
+dotnet new classlib -n QuadrasNatal.Infrastructure
+dotnet new classlib -n QuadrasNatal.Core
+dotnet sln QuadrasNatal.sln add QuadrasNatal.Application/QuadrasNatal.Application.csproj
+dotnet sln QuadrasNatal.sln add QuadrasNatal.Application/QuadrasNatal.Application.csproj
+dotnet sln QuadrasNatal.sln add QuadrasNatal.Application/QuadrasNatal.Application.csproj
+dotnet sln QuadrasNatal.sln add QuadrasNatal.Application/QuadrasNatal.Application.csproj
+
+implementar Controllers 
+
+implementar Models 
+
+
+
+->Entity FrameWorkCore
+
+dotnet tool install --global dotnet-ef
+appsettings configurar a connectionstring, 
+
+adicionar os 3 seguintes pacotes:
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+
+dotnet ef migrations add nomedamigration
+dotnet ef database update
+
+
+
+
