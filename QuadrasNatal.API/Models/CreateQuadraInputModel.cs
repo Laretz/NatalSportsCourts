@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using QuadrasNatal.API.Entities;
 
 namespace QuadrasNatal.API.Models
 {
@@ -12,7 +13,11 @@ namespace QuadrasNatal.API.Models
         public string TipoSuperficie { get; set; }
         public bool Cobertura { get;  set; }
         public bool Iluminação { get;  set; }
-        public List<string> Esportes { get; private set; } = new List<string>();
+        public bool Disponivel { get; set; }
+        public List<string> Esportes { get;  set;} 
+
+        public Court ToEntity() 
+            => new (Nome, Descricao, TipoSuperficie, Cobertura, Iluminação, Disponivel); 
 
     }
 }

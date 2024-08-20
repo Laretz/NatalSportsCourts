@@ -2,7 +2,10 @@ namespace QuadrasNatal.API.Enums
 {
     public enum SchedulingStatusEnum
     {
-        Criado = 0
+        Created = 0,
+        InProgress = 1,
+        Cancelled = 2,
+        Completed = 3,
 
     }
 }
