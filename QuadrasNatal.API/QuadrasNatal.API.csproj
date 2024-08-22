@@ -16,4 +16,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QuadrasNatal.Core\QuadrasNatal.Core.csproj" />
+    <ProjectReference Include="..\QuadrasNatal.Application\QuadrasNatal.Application.csproj" />
+    <ProjectReference Include="..\QuadrasNatal.Infrastructure\QuadrasNatal.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1593,6 +1593,44 @@
             "rid": "win"
           }
         }
+      },
+      "QuadrasNatal.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "QuadrasNatal.Core": "1.0.0",
+          "QuadrasNatal.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/QuadrasNatal.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QuadrasNatal.Application.dll": {}
+        }
+      },
+      "QuadrasNatal.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/QuadrasNatal.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QuadrasNatal.Core.dll": {}
+        }
+      },
+      "QuadrasNatal.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "QuadrasNatal.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/QuadrasNatal.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QuadrasNatal.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -4505,6 +4543,21 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "QuadrasNatal.Application/1.0.0": {
+      "type": "project",
+      "path": "../QuadrasNatal.Application/QuadrasNatal.Application.csproj",
+      "msbuildProject": "../QuadrasNatal.Application/QuadrasNatal.Application.csproj"
+    },
+    "QuadrasNatal.Core/1.0.0": {
+      "type": "project",
+      "path": "../QuadrasNatal.Core/QuadrasNatal.Core.csproj",
+      "msbuildProject": "../QuadrasNatal.Core/QuadrasNatal.Core.csproj"
+    },
+    "QuadrasNatal.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../QuadrasNatal.Infrastructure/QuadrasNatal.Infrastructure.csproj",
+      "msbuildProject": "../QuadrasNatal.Infrastructure/QuadrasNatal.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4512,6 +4565,9 @@
       "Microsoft.EntityFrameworkCore.Design >= 8.0.8",
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8",
+      "QuadrasNatal.Application >= 1.0.0",
+      "QuadrasNatal.Core >= 1.0.0",
+      "QuadrasNatal.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -4521,11 +4577,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\renat\\3D Objects\\Quadra\\QuadrasNatal.API\\QuadrasNatal.API.csproj",
+      "projectUniqueName": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.API\\QuadrasNatal.API.csproj",
       "projectName": "QuadrasNatal.API",
-      "projectPath": "C:\\Users\\renat\\3D Objects\\Quadra\\QuadrasNatal.API\\QuadrasNatal.API.csproj",
+      "projectPath": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.API\\QuadrasNatal.API.csproj",
       "packagesPath": "C:\\Users\\renat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\renat\\3D Objects\\Quadra\\QuadrasNatal.API\\obj\\",
+      "outputPath": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\renat\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4539,7 +4595,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.Application\\QuadrasNatal.Application.csproj": {
+              "projectPath": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.Application\\QuadrasNatal.Application.csproj"
+            },
+            "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.Core\\QuadrasNatal.Core.csproj": {
+              "projectPath": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.Core\\QuadrasNatal.Core.csproj"
+            },
+            "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.Infrastructure\\QuadrasNatal.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.Infrastructure\\QuadrasNatal.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

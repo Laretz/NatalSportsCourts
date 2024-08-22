@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using QuadrasNatal.API.Entities;
-using QuadrasNatal.API.Models;
-using QuadrasNatal.API.Persistence;
+using QuadrasNatal.Application.Models;
+using QuadrasNatal.Core.Entities;
+using QuadrasNatal.Infrastructure.Persistence;
+
 
 namespace QuadrasNatal.API.Controllers
 {
@@ -25,8 +26,9 @@ namespace QuadrasNatal.API.Controllers
         public IActionResult GetById(int id)
         {
              var user = _contextDb.Users
-             .Include(u => u.Reservas)
-                .SingleOrDefault(u => u.Id == id);
+             .Include(u => u.Bookings)
+            .SingleOrDefault(u => u.Id == id);
+               
 
             if (user is null)
             {
@@ -37,6 +39,7 @@ namespace QuadrasNatal.API.Controllers
 
             return Ok(model);
         }
+        //POST api/users
         [HttpPost]
         public async Task<IActionResult> Post(CreateUserInputModel model){
             

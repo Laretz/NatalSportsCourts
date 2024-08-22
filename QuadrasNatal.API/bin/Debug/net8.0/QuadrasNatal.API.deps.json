@@ -11,6 +11,9 @@
           "Microsoft.EntityFrameworkCore.Design": "8.0.8",
           "Microsoft.EntityFrameworkCore.InMemory": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "QuadrasNatal.Application": "1.0.0",
+          "QuadrasNatal.Core": "1.0.0",
+          "QuadrasNatal.Infrastructure": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -916,6 +919,29 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "QuadrasNatal.Application/1.0.0": {
+        "dependencies": {
+          "QuadrasNatal.Core": "1.0.0",
+          "QuadrasNatal.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "QuadrasNatal.Application.dll": {}
+        }
+      },
+      "QuadrasNatal.Core/1.0.0": {
+        "runtime": {
+          "QuadrasNatal.Core.dll": {}
+        }
+      },
+      "QuadrasNatal.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "QuadrasNatal.Core": "1.0.0"
+        },
+        "runtime": {
+          "QuadrasNatal.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -1498,6 +1524,21 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "QuadrasNatal.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuadrasNatal.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuadrasNatal.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

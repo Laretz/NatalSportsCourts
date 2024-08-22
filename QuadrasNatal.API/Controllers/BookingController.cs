@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using QuadrasNatal.API.Entities;
-using QuadrasNatal.API.Models;
-using QuadrasNatal.API.Persistence;
+using Microsoft.EntityFrameworkCore;
+using QuadrasNatal.Application.Models;
+using QuadrasNatal.Application.Services;
+using QuadrasNatal.Core.Entities;
+using QuadrasNatal.Infrastructure.Persistence;
 
 namespace QuadrasNatal.API.Controllers
 {
@@ -13,56 +11,103 @@ namespace QuadrasNatal.API.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-         private readonly QuadrasNatalDbContext _contextDb;
-         public BookingController(QuadrasNatalDbContext contextDb )
+        private readonly QuadrasNatalDbContext _contextDb;
+        private readonly IBookingService _service;
+         public BookingController(QuadrasNatalDbContext contextDb, IBookingService service )
          {
             _contextDb = contextDb;
+            _service = service;
          }
-        [HttpGet]
-        public  async Task<IActionResult> GellAll(string search = "" )
-        {
-            var bookings = _contextDb.Reservas.ToList();
 
-            var model = bookings.Select(ReservaViewModel.FromEntity).ToList();
-            return Ok();
+        //GET api/booking?search=crm
+        [HttpGet]
+        public  async Task<IActionResult> Get(string search = "")
+        {
+            var result = _service.GetAll("");
+            
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById (int id)
+        {
+            var result = _service.GetById(id);
+            
+            if(!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
+            return Ok(result);
         }
          //POST api/reservas
         [HttpPost]
-        public async Task<IActionResult> Post(CreateReservaInputModel model)
+        public async Task<IActionResult> Post(CreateBookingInputModel model)
         {
-            var reserva = model.ToEntity();
-            _contextDb.Reservas.Add(reserva);
-            _contextDb.SaveChanges();
+            var result = _service.Insert(model);
             
-            return Ok(model);
+            return CreatedAtAction(nameof(GetById), new {id = result.Data}, model);
         }
 
         [HttpPost("{id}/comentarios")]
-        public async Task<IActionResult> PostComment(int id, CreateReservaCommentarioInputModel model)
+        public async Task<IActionResult> PostComment(int id, CreateBookingCommentInputModel model)
         {
+            var result = _service.InsertComment(id, model);
+
+            if (!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
+            
             return NoContent();
         }
         [HttpPut("{id}/iniciada")]
-        public async Task<IActionResult> Start(int id, UpdateQuadraInputModel model)
-        {
+        public async Task<IActionResult> Start(int id, UpdateBookingInputeModel model)
+        { 
+           var result = _service.Start(id);
+
+            if (!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
+           
             return NoContent();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, UpdateQuadraInputModel model)
+        public async Task<IActionResult> Put(int id, UpdateBookingInputeModel model)
         {   
-            return Ok();
+            var result = _service.Update(model);
+
+            if (!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
+           
+            return NoContent();
         }
 
         [HttpPut("{id}/finalizada")]
         public async Task<IActionResult> Finalizada(int id, UpdateQuadraInputModel model)
         {
+            var result = _service.Finish(id);
+
+            if (!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            var result = _service.Delete(id);
+
+            if (!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
+           
             return NoContent();
         }
     }

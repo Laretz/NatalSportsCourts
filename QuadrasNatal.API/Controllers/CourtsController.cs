@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using QuadrasNatal.API.Models;
-using QuadrasNatal.API.Persistence;
+using QuadrasNatal.Application.Models;
+using QuadrasNatal.Infrastructure.Persistence;
+
 
 namespace QuadrasNatal.API.Controllers
 
@@ -28,7 +24,7 @@ namespace QuadrasNatal.API.Controllers
             .Include(c => c.Comments)
             .SingleOrDefault(c => c.Id == id);
 
-            var model = QuadraViewModel.FromEntity(court);
+            var model = CourtViewModel.FromEntity(court);
            
             return Ok(model);
         }
@@ -40,7 +36,7 @@ namespace QuadrasNatal.API.Controllers
             .Include(c => c.Reservations)
             .Where(c => !c.IsDeleted).ToList();
 
-            var model = courts.Select(QuadraViewModel.FromEntity).ToList();
+            var model = courts.Select(CourtViewModel.FromEntity).ToList();
 
             return Ok(model);
         }
@@ -66,12 +62,10 @@ namespace QuadrasNatal.API.Controllers
                 return NotFound();
             }
 
-            court.Update(model.Name, model.Description, model.TipoSuperficie);
+            court.Update(model.Name, model.Description, model.SurfaceType);
 
             _contextDb.Courts.Update(court);
             _contextDb.SaveChanges();
-
-            
 
             return NoContent();
         }
