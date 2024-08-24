@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "8OP6pqNy5VJjFs39MXtUCPMlPTMmi/6Ut+26dvgnKwXGJQawlw2XkMRumgmP4hXVzxv2T0cC2bJ9sm3Jf/iyxw==",
+  "dgSpecHash": "dn0WV5unIM0WYDnVlM7QJRWZMvohaU4HX3jyY2dS/4XoSKaTcE9703Vby1v3xnNfG2NNrMXHj60LUUIXwweO7A==",
   "success": true,
   "projectFilePath": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.API\\QuadrasNatal.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\renat\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\renat\\.nuget\\packages\\mediatr\\12.4.0\\mediatr.12.4.0.nupkg.sha512",
+    "C:\\Users\\renat\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

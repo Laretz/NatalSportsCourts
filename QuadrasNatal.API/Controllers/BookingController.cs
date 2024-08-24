@@ -1,6 +1,15 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using QuadrasNatal.Application.Commands.DeleteBooking;
+using QuadrasNatal.Application.Commands.FinishBooking;
+using QuadrasNatal.Application.Commands.InsertBooking;
+using QuadrasNatal.Application.Commands.InsertComment;
+using QuadrasNatal.Application.Commands.StartBooking;
+using QuadrasNatal.Application.Commands.UpdateBooking;
 using QuadrasNatal.Application.Models;
+using QuadrasNatal.Application.Queries.GetAllBookings;
+using QuadrasNatal.Application.Queries.GetBookingById;
 using QuadrasNatal.Application.Services;
 using QuadrasNatal.Core.Entities;
 using QuadrasNatal.Infrastructure.Persistence;
@@ -11,19 +20,24 @@ namespace QuadrasNatal.API.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly QuadrasNatalDbContext _contextDb;
+
         private readonly IBookingService _service;
-         public BookingController(QuadrasNatalDbContext contextDb, IBookingService service )
+        private readonly IMediator _mediator;
+        public BookingController(IBookingService service, IMediator mediator)
          {
-            _contextDb = contextDb;
             _service = service;
+            _mediator = mediator;
          }
 
         //GET api/booking?search=crm
         [HttpGet]
         public  async Task<IActionResult> Get(string search = "")
         {
-            var result = _service.GetAll("");
+            //var result = _service.GetAll("");
+
+            var query = new GetAllBookingsQuery();
+
+            var result = await _mediator.Send(query);
             
             return Ok(result);
         }
@@ -31,7 +45,7 @@ namespace QuadrasNatal.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById (int id)
         {
-            var result = _service.GetById(id);
+            var result = await  _mediator.Send(new GetBookingByIdQuery(id));
             
             if(!result.IsSucess)
             {
@@ -41,17 +55,17 @@ namespace QuadrasNatal.API.Controllers
         }
          //POST api/reservas
         [HttpPost]
-        public async Task<IActionResult> Post(CreateBookingInputModel model)
+        public async Task<IActionResult> Post(InsertBookingCommand command)
         {
-            var result = _service.Insert(model);
+            var result = await _mediator.Send(command);
             
-            return CreatedAtAction(nameof(GetById), new {id = result.Data}, model);
+            return CreatedAtAction(nameof(GetById), new {id = result.Data}, command);
         }
 
         [HttpPost("{id}/comentarios")]
-        public async Task<IActionResult> PostComment(int id, CreateBookingCommentInputModel model)
+        public async Task<IActionResult> PostComment(int id, InsertCommentCommand command)
         {
-            var result = _service.InsertComment(id, model);
+            var result = await _mediator.Send(command);
 
             if (!result.IsSucess)
             {
@@ -61,9 +75,9 @@ namespace QuadrasNatal.API.Controllers
             return NoContent();
         }
         [HttpPut("{id}/iniciada")]
-        public async Task<IActionResult> Start(int id, UpdateBookingInputeModel model)
+        public async Task<IActionResult> Start(int id)
         { 
-           var result = _service.Start(id);
+           var result = await _mediator.Send(new StartBookingCommand(id));
 
             if (!result.IsSucess)
             {
@@ -74,9 +88,9 @@ namespace QuadrasNatal.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, UpdateBookingInputeModel model)
+        public async Task<IActionResult> Put(int id, UpdateBookingCommand command)
         {   
-            var result = _service.Update(model);
+            var result = await _mediator.Send(command);
 
             if (!result.IsSucess)
             {
@@ -87,9 +101,9 @@ namespace QuadrasNatal.API.Controllers
         }
 
         [HttpPut("{id}/finalizada")]
-        public async Task<IActionResult> Finalizada(int id, UpdateQuadraInputModel model)
+        public async Task<IActionResult> Finalizada(int id)
         {
-            var result = _service.Finish(id);
+            var result = await _mediator.Send(new FinishBookingCommand(id));
 
             if (!result.IsSucess)
             {
@@ -101,7 +115,7 @@ namespace QuadrasNatal.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = _service.Delete(id);
+            var result = await _mediator.Send(new DeleteBookingCommand(id));
 
             if (!result.IsSucess)
             {

@@ -282,3 +282,5 @@ C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\obj\Deb
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\obj\Debug\net8.0\QuadrasN.54DEBD6A.Up2Date
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\obj\Debug\net8.0\QuadrasNatal.API.genruntimeconfig.cache
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\obj\Debug\net8.0\ref\QuadrasNatal.API.dll
+C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\MediatR.dll
+C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\MediatR.Contracts.dll
