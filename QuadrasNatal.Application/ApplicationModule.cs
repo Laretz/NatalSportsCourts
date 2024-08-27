@@ -1,7 +1,10 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using QuadrasNatal.Application.Commands.InsertBooking;
 using QuadrasNatal.Application.Models;
+
 
 namespace QuadrasNatal.Application
 {
@@ -10,7 +13,8 @@ namespace QuadrasNatal.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services
-                .AddHandlers();
+                .AddHandlers()
+                .AddValidation();
                
             return services;
         }
@@ -22,6 +26,15 @@ namespace QuadrasNatal.Application
 
             services.AddTransient<IPipelineBehavior<InsertBookingCommand, ResultViewModel<int>>, ValidateInsertBookingCommand>();
               return services;
+        }
+
+        private static IServiceCollection AddValidation (this IServiceCollection services)
+        {
+             services
+                .AddFluentValidationAutoValidation()
+                .AddValidatorsFromAssemblyContaining<InsertBookingCommand>();
+
+            return services;
         }
         
         

@@ -284,3 +284,6 @@ C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\obj\Deb
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\obj\Debug\net8.0\ref\QuadrasNatal.API.dll
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\MediatR.dll
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\MediatR.Contracts.dll
+C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

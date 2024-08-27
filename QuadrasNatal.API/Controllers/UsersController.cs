@@ -43,7 +43,7 @@ namespace QuadrasNatal.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(CreateUserInputModel model){
             
-            var user = new User (model.FullName, model.Email, model.BithDate);
+            var user = new User (model.FullName, model.Email, model.BirthDate);
 
             _contextDb.Users.Add(user);
             _contextDb.SaveChanges();

@@ -91,6 +91,14 @@ git checkout master
 após isso, exclui os services e exclui os models ja utilizados e tambem removi services da classe ApplicationModule
 ir em cada handler, substituir a injeção do _contextDb por _repository e substituir codigo pelos metodos criados no BookingRepository. ex -> var booking = await _repository.GetById(request.Id);
 
+adc validaçao
+adicionar pacote FluentValidation
+dotnet add package FluentValidation.AspNetCore
+criar Validation para inserção de dados
+implementar AbstractValidator da classe desejada
+criar regras para validar dados de entrada
+
+
 gerar as migrations na camada de Infrastructure:
 dotnet ef migrations add FirstMigration -o Persistence/Migrations -s ..\QuadrasNatal.API\
 dotnet ef database update -s ..\QuadrasNatal.API\

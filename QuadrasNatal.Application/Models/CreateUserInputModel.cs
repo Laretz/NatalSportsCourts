@@ -8,8 +8,8 @@ namespace QuadrasNatal.Application.Models
 {
     public class CreateUserInputModel
     {
-        public string FullName { get;  set; }
-        public string Email { get;  set; }
-        public DateTime BithDate { get;  set; }
+        public string? FullName { get;  set; }
+        public string? Email { get;  set; }
+        public DateTime BirthDate { get;  set; }
     }
 }

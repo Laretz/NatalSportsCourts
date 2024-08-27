@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "ZxLKhxb+48dAQzNGPJrTRyDCUJNHoQ3y6a+LU+X/MdvTJ8Wyr8JTxkQ5P17wBsuwqy4aAh64zWscT9C1rIOLxw==",
+  "dgSpecHash": "zU358uRK9mHRwvLqdHmxNJZFeO8V/GkvZ5pg07qzVEPONCxDtjuaqfc6QLCOSIXzLlAr3nkO29Y1MAQdw6hsnQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.Application\\QuadrasNatal.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\renat\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\renat\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\renat\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\renat\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\mediatr\\12.4.0\\mediatr.12.4.0.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "dn0WV5unIM0WYDnVlM7QJRWZMvohaU4HX3jyY2dS/4XoSKaTcE9703Vby1v3xnNfG2NNrMXHj60LUUIXwweO7A==",
+  "dgSpecHash": "ncDwD8lfVm1vsZFRVz+EJFF6bIXH/cCfIBv35OsLNQ4xLqoCpEnH//L19+5xKLag3Belm33vbH/GLHv5WClPsA==",
   "success": true,
   "projectFilePath": "C:\\Users\\renat\\3D Objects\\workspace\\0.2 Projects\\Quadra\\QuadrasNatal.API\\QuadrasNatal.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\renat\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\renat\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\renat\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\renat\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\mediatr\\12.4.0\\mediatr.12.4.0.nupkg.sha512",
     "C:\\Users\\renat\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
