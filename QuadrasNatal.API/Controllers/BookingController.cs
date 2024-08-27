@@ -58,6 +58,11 @@ namespace QuadrasNatal.API.Controllers
         public async Task<IActionResult> Post(InsertBookingCommand command)
         {
             var result = await _mediator.Send(command);
+
+            if (!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
             
             return CreatedAtAction(nameof(GetById), new {id = result.Data}, command);
         }

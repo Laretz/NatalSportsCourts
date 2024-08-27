@@ -9,6 +9,21 @@ dotnet sln QuadrasNatal.sln add QuadrasNatal.Application/QuadrasNatal.Applicatio
 dotnet sln QuadrasNatal.sln add QuadrasNatal.Application/QuadrasNatal.Application.csproj
 dotnet sln QuadrasNatal.sln add QuadrasNatal.Application/QuadrasNatal.Application.csproj
 
+api referencia os 3 outros projetos:
+dotnet add reference ../QuadrasNatal.Application/QuadrasNatal.Application.csproj
+dotnet add reference ../QuadrasNatal.Core/QuadrasNatal.Core.csproj
+dotnet add reference ../QuadrasNatal.Infrastructure/QuadrasNatal.Infrastructure.csproj
+
+aplication referencia Infrastructure e Core:
+dotnet add reference ../QuadrasNatal.Infrastructure/QuadrasNatal.Infrastructure.csproj
+dotnet add reference ../QuadrasNatal.Core/QuadrasNatal.Core.csproj
+
+Infrastructure referencia apenas ao Core:
+dotnet add reference ../QuadrasNatal.Core/QuadrasNatal.Core.csproj
+
+
+
+
 implementar Controllers 
 
 implementar Models 
@@ -26,9 +41,46 @@ dotnet add package Microsoft.EntityFrameworkCore.InMemory
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 
 
-dotnet ef migrations add nomedamigration
 dotnet ef database update
 
+criar as entidades, pensar bem nos atributos
+caso usar base entity, lembrar de adicionar : base()
 
+criar o dbcontext e verificar bem as relações das entidades
 
+dotnet ef migrations add FirstMigration -o Persistence/Migrations
 
+refatoracao de projeto:
+entities + enums são levadas para Core
+Models levados para Application
+Persistence para Infrastructure
+
+Parte do Controllers é bom mais complicada e é normal passar por varios erros
+Criamos o IBookingService e BookingService 
+IBookingService adicionamos todos os metodos utilizados no controlador (GetAll, Put, Delete, etc)
+BookingService adicionamos a implementação dos metodos que estão no controlador
+Criamos um ResultViewModel
+Criamos o ApplicationModule para adicionarmos os services, ao inves de utilizar o program.cs, assim fica mais organizado e de facil entendimento
+Tive um problema que era: nao conseguia criar um comentario, dava error 500. 
+no banco de dados nao tava gerando comentario, percebi que no DbContext faltava configurar a relação de CourtComments com User e agora deu certo.
+
+Passei por outro grande problema depois de querer alterar algumas coisas no banco de dados
+nao estava conseguindo criar a tabela com o comando "dotnet ef database update". apos olhar por todos os lados, string de conexão e tudo mais, percebi que estava faltando o -> -s ../QuadrasNatal.API/ e o problema foi corrigido 
+no get em booking, nao tava puxando os cometnarios, continuava uma lista vazia, resolvido após colocar o Include no service do getall -> .Include(b => b.Comments)
+
+implementando CQRS
+configurando uso do MediatR 
+    -> instalar pacote: dotnet add package MediatR --version 12.4.0
+    -> criar uma pasta  (commands) e criar 1 pasta + 2 classes para cada metodo do service (Uma boa olhar a interface para ver com facilidade os metodos) por padrão, para o metodo Delete, por exemplo, criamos DeleteBooking e dentro desas pasta, as duas classes
+     - DeleteBookingCommand: implementa a IRequest<> utilizar os atributos que achar necessario, tal qual como foi criado nos models, lembrar de deixar os atributois publicos 
+     - DeleteBookingHandler: implementa a IRequestHandler<CommandTratado, Retorno do Command>. busca as dependencias (_contextDb nesse caso), remove o metodo do service e coloca no metodo Handle + utilização dos metodos async/await
+lembrar de aconfigurar o mediatr para que ele encontre todos os commands/handlers no arquivo ApplicationModule
+depois vamos para o conmtroller, injetamos o _mediator e subistituimos 
+
+criando validation 
+dentro do InsertBooking criamos um novo arquivo "ValidateInsertBookingCommand"
+e usamos ele pra validar dados antes de salvar no banco de dados. ele faz uma verificação pra saber se existe, e se nao existir retorna error 
+
+gerar as migrations na camada de Infrastructure:
+dotnet ef migrations add FirstMigration -o Persistence/Migrations -s ..\QuadrasNatal.API\
+dotnet ef database update -s ..\QuadrasNatal.API\

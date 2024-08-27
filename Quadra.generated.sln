@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuadrasNatal.API", "QuadrasNatal.API\QuadrasNatal.API.csproj", "{E4238AEE-0083-4A20-AC5F-2EC8906071EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuadrasNatal.API", "QuadrasNatal.API\QuadrasNatal.API.csproj", "{1063E3E4-8A4A-4A06-B916-25A9E3580348}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuadrasNatal.Application", "QuadrasNatal.Application\QuadrasNatal.Application.csproj", "{A64944F5-C7B4-458A-B3C9-270BFE87FBBE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuadrasNatal.Core", "QuadrasNatal.Core\QuadrasNatal.Core.csproj", "{10C9CCB2-E953-402E-B42D-673C0A80A08B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuadrasNatal.Infrastructure", "QuadrasNatal.Infrastructure\QuadrasNatal.Infrastructure.csproj", "{2357CAE3-3A6A-4926-8FE2-0E168A944871}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E4238AEE-0083-4A20-AC5F-2EC8906071EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4238AEE-0083-4A20-AC5F-2EC8906071EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4238AEE-0083-4A20-AC5F-2EC8906071EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4238AEE-0083-4A20-AC5F-2EC8906071EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1063E3E4-8A4A-4A06-B916-25A9E3580348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1063E3E4-8A4A-4A06-B916-25A9E3580348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1063E3E4-8A4A-4A06-B916-25A9E3580348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1063E3E4-8A4A-4A06-B916-25A9E3580348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A64944F5-C7B4-458A-B3C9-270BFE87FBBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A64944F5-C7B4-458A-B3C9-270BFE87FBBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A64944F5-C7B4-458A-B3C9-270BFE87FBBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A64944F5-C7B4-458A-B3C9-270BFE87FBBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C9CCB2-E953-402E-B42D-673C0A80A08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C9CCB2-E953-402E-B42D-673C0A80A08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C9CCB2-E953-402E-B42D-673C0A80A08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C9CCB2-E953-402E-B42D-673C0A80A08B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2357CAE3-3A6A-4926-8FE2-0E168A944871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2357CAE3-3A6A-4926-8FE2-0E168A944871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2357CAE3-3A6A-4926-8FE2-0E168A944871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2357CAE3-3A6A-4926-8FE2-0E168A944871}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
