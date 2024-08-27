@@ -29,7 +29,7 @@ namespace QuadrasNatal.Core.Entities
         public bool Lighting { get; private set; }
         public bool Available { get; private set; }
         public List<Booking> Reservations { get; private set; }
-        public List<Comments> Comments { get; set; }
+        public List<Comment> Comments { get; set; }
         public CourtSizeEnum Size { get; private set; }
         public void Update(string name, string description, string surfaceType)
         {

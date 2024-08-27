@@ -1,30 +1,32 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using QuadrasNatal.Application.Models;
-using QuadrasNatal.Infrastructure.Persistence;
+using QuadrasNatal.Core.Repositories;
+
 
 namespace QuadrasNatal.Application.Commands.DeleteBooking
 {
     public class DeleteBookingHandler : IRequestHandler<DeleteBookingCommand, ResultViewModel>
     {
-        private readonly QuadrasNatalDbContext _contextDb;
-        public DeleteBookingHandler(QuadrasNatalDbContext contextDb )
+        private readonly IBookingRepository _repository;
+        public DeleteBookingHandler(IBookingRepository repository)
         {
-            _contextDb = contextDb;
+            _repository = repository;
         }
         public async Task<ResultViewModel> Handle(DeleteBookingCommand request, CancellationToken cancellationToken)
         {
-            var booking = await _contextDb.Bookings.SingleOrDefaultAsync(b=> b.Id == request.Id);
+            var booking = await _repository.GetById(request.Id);
+
             if (booking == null )
             {
                 return ResultViewModel.Error("Projeto nao encontrado");
             }
 
             booking.SetAsDeleted();
-            _contextDb.Bookings.Update(booking);
-            await _contextDb.SaveChangesAsync();
+            await _repository.Update(booking);
 
             return ResultViewModel.Sucess();
         }
     }
 }
+
+

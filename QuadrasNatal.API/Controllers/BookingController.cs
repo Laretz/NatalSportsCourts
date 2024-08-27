@@ -7,12 +7,9 @@ using QuadrasNatal.Application.Commands.InsertBooking;
 using QuadrasNatal.Application.Commands.InsertComment;
 using QuadrasNatal.Application.Commands.StartBooking;
 using QuadrasNatal.Application.Commands.UpdateBooking;
-using QuadrasNatal.Application.Models;
 using QuadrasNatal.Application.Queries.GetAllBookings;
 using QuadrasNatal.Application.Queries.GetBookingById;
-using QuadrasNatal.Application.Services;
-using QuadrasNatal.Core.Entities;
-using QuadrasNatal.Infrastructure.Persistence;
+
 
 namespace QuadrasNatal.API.Controllers
 {
@@ -21,11 +18,9 @@ namespace QuadrasNatal.API.Controllers
     public class BookingController : ControllerBase
     {
 
-        private readonly IBookingService _service;
         private readonly IMediator _mediator;
-        public BookingController(IBookingService service, IMediator mediator)
+        public BookingController(IMediator mediator)
          {
-            _service = service;
             _mediator = mediator;
          }
 
@@ -33,8 +28,6 @@ namespace QuadrasNatal.API.Controllers
         [HttpGet]
         public  async Task<IActionResult> Get(string search = "")
         {
-            //var result = _service.GetAll("");
-
             var query = new GetAllBookingsQuery();
 
             var result = await _mediator.Send(query);

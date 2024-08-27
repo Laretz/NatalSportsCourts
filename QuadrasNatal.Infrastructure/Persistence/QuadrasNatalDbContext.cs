@@ -13,7 +13,7 @@ namespace QuadrasNatal.Infrastructure.Persistence
         public DbSet<Court> Courts { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Comments> CourtComments { get; set; }
+        public DbSet<Comment> CourtComments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -52,7 +52,7 @@ namespace QuadrasNatal.Infrastructure.Persistence
                 });
             
             builder
-                .Entity<Comments>(e =>
+                .Entity<Comment>(e =>
                 {
                     e.HasKey(cc => cc.Id);
 

@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using QuadrasNatal.Application.Commands.InsertBooking;
 using QuadrasNatal.Application.Models;
-using QuadrasNatal.Application.Services;
 
 namespace QuadrasNatal.Application
 {
@@ -15,15 +10,8 @@ namespace QuadrasNatal.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services
-                .AddServices()
                 .AddHandlers();
                
-            return services;
-        }
-
-        private static IServiceCollection AddServices(this IServiceCollection services)
-        {
-            services.AddScoped<IBookingService, BookingService>();
             return services;
         }
 

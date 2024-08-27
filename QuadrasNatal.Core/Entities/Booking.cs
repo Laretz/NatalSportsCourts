@@ -26,7 +26,7 @@ namespace QuadrasNatal.Core.Entities
         public DateTime? StartDateTime { get; private set; }
         public DateTime? EndDateTime { get; private set; }
 
-        public List<Comments> Comments { get; private set; }
+        public List<Comment> Comments { get; private set; }
         
         public void Cancel()
         {

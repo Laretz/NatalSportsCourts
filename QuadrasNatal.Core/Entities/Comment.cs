@@ -1,13 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace QuadrasNatal.Core.Entities
 {
-    public class Comments : BaseEntity
+    public class Comment : BaseEntity
     {
-        public Comments(string content, int idCourt, int idUser, int idBooking)
+        public Comment(string content, int idCourt, int idUser, int idBooking)
          : base()
         {
             Content = content;

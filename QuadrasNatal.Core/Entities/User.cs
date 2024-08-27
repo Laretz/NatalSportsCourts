@@ -25,6 +25,6 @@ namespace QuadrasNatal.Core.Entities
         public DateTime BithDate { get; private set; }
 
         public List<Booking> Bookings { get; private set; }
-        public List<Comments> Comments { get; private set; }
+        public List<Comment> Comments { get; private set; }
     }
 }

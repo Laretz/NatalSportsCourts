@@ -7,7 +7,7 @@ namespace QuadrasNatal.Application.Models
 {
     public class CourtViewModel
     {
-        public CourtViewModel(int id, string nome, string descricao, string tipoSuperficie, bool cobertura, bool iluminacao, bool disponivel, List<Comments> comments)
+        public CourtViewModel(int id, string nome, string descricao, string tipoSuperficie, bool cobertura, bool iluminacao, bool disponivel, List<Comment> comments)
         {
             Id = id;
             Nome = nome;

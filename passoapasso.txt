@@ -81,6 +81,16 @@ criando validation
 dentro do InsertBooking criamos um novo arquivo "ValidateInsertBookingCommand"
 e usamos ele pra validar dados antes de salvar no banco de dados. ele faz uma verificação pra saber se existe, e se nao existir retorna error 
 
+Utilizei estes comandos para criar uma branch e manter salvo essa implementação do codigo onde ainda usavamos service para Courts e para Users antes de fazer todas as alterações
+git checkout -b feature/save-old-service-implementation
+git add .
+git commit -m "chore: Save old service implementation before migrating fully to CQRS"
+git push origin feature/save-old-service-implementation
+git checkout master
+
+após isso, exclui os services e exclui os models ja utilizados e tambem removi services da classe ApplicationModule
+ir em cada handler, substituir a injeção do _contextDb por _repository e substituir codigo pelos metodos criados no BookingRepository. ex -> var booking = await _repository.GetById(request.Id);
+
 gerar as migrations na camada de Infrastructure:
 dotnet ef migrations add FirstMigration -o Persistence/Migrations -s ..\QuadrasNatal.API\
 dotnet ef database update -s ..\QuadrasNatal.API\

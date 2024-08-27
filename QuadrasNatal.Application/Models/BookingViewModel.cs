@@ -3,7 +3,7 @@ using QuadrasNatal.Core.Entities;
 namespace QuadrasNatal.Application.Models
 {
     public class BookingViewModel
-    { public BookingViewModel(int id, string description, string sport, int idCourt, string courtName, string clientName, string status, List<Comments> comments)
+    { public BookingViewModel(int id, string description, string sport, int idCourt, string courtName, string clientName, string status, List<Comment> comments)
         {
             Id = id;
             Description = description;

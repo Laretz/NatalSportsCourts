@@ -1,21 +1,18 @@
-using Microsoft.EntityFrameworkCore;
 using QuadrasNatal.API.ExceptionHandler;
 using QuadrasNatal.Application;
+using QuadrasNatal.Infrastructure;
 using QuadrasNatal.API.Services;
-using QuadrasNatal.Infrastructure.Persistence;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddScoped<IConfigService, ConfigService>();
 
-//builder.Services.AddDbContext<QuadrasNatalDbContext>(o => o.UseInMemoryDatabase("QuadrasNatalDb"));
-var connectionString = builder.Configuration.GetConnectionString("QuadraNatalCs");
-builder.Services.AddDbContext<QuadrasNatalDbContext>(o => o.UseSqlServer(connectionString));
 
 builder.Services
-    .AddApplication();
+    .AddApplication()
+    .AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

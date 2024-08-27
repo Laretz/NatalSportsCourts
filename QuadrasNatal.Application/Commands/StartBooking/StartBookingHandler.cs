@@ -5,28 +5,28 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using QuadrasNatal.Application.Models;
+using QuadrasNatal.Core.Repositories;
 using QuadrasNatal.Infrastructure.Persistence;
 
 namespace QuadrasNatal.Application.Commands.StartBooking
 {
     public class StartBookingHandler : IRequestHandler<StartBookingCommand, ResultViewModel>
     {
-        private readonly QuadrasNatalDbContext _contextDb;
-        public StartBookingHandler(QuadrasNatalDbContext contextDb )
+        private readonly IBookingRepository _repository;
+        public StartBookingHandler(IBookingRepository repository)
         {
-            _contextDb = contextDb;
+            _repository = repository;
         }
         public async Task<ResultViewModel> Handle(StartBookingCommand request, CancellationToken cancellationToken)
         {
-            var booking = await _contextDb.Bookings.SingleOrDefaultAsync(b=> b.Id == request.Id);
+            var booking = await _repository.GetById(request.Id);
                 if (booking == null )
-            {
-                return ResultViewModel.Error("Agendamento nao encontrado");
-            }
+                {
+                    return ResultViewModel.Error("Agendamento nao encontrado");
+                }
 
             booking.Start();
-            _contextDb.Bookings.Update(booking);
-            await _contextDb.SaveChangesAsync();
+            await _repository.Update(booking);
 
             return ResultViewModel.Sucess();
         }

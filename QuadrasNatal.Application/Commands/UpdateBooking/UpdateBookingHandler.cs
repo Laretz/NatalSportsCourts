@@ -1,20 +1,19 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using QuadrasNatal.Application.Models;
-using QuadrasNatal.Infrastructure.Persistence;
+using QuadrasNatal.Core.Repositories;
 
 namespace QuadrasNatal.Application.Commands.UpdateBooking
 {
     public class UpdateBookingHandler : IRequestHandler<UpdateBookingCommand, ResultViewModel>
     {
-        private readonly QuadrasNatalDbContext _contextDb;
-        public UpdateBookingHandler(QuadrasNatalDbContext contextDb )
+        private readonly IBookingRepository _repository;
+        public UpdateBookingHandler(IBookingRepository repository)
         {
-            _contextDb = contextDb;
+            _repository = repository;
         }
         public async Task<ResultViewModel> Handle(UpdateBookingCommand request, CancellationToken cancellationToken)
         {
-             var booking = await _contextDb.Bookings.SingleOrDefaultAsync(b=> b.Id == request.IdBooking);
+            var booking = await _repository.GetById(request.IdBooking);
 
             if (booking == null )
             {
@@ -23,8 +22,8 @@ namespace QuadrasNatal.Application.Commands.UpdateBooking
 
             booking.Update(request.Description, request.Sport);
 
-            _contextDb.Bookings.Update(booking);
-            await _contextDb.SaveChangesAsync();
+           
+            await _repository.Update(booking);
 
             return ResultViewModel.Sucess();
         }

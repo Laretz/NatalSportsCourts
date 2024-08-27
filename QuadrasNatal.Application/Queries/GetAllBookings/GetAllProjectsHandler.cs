@@ -1,30 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using QuadrasNatal.Application.Models;
-using QuadrasNatal.Infrastructure.Persistence;
+using QuadrasNatal.Core.Repositories;
 
 namespace QuadrasNatal.Application.Queries.GetAllBookings
 {
     public class GetAllBookingsHandler : IRequestHandler<GetAllBookingsQuery, ResultViewModel<List<BookingViewModel>>>
     {
      
-            private readonly QuadrasNatalDbContext _contextDb;
-            public GetAllBookingsHandler(QuadrasNatalDbContext contextDb )
-            {
-                 _contextDb = contextDb;
-            }
+        private readonly IBookingRepository _repository;
+        public GetAllBookingsHandler(IBookingRepository repository)
+        {
+            _repository = repository;
+        }
     public async Task<ResultViewModel<List<BookingViewModel>>> Handle(GetAllBookingsQuery request, CancellationToken cancellationToken)
     {
-            var bookings = await _contextDb.Bookings
-            .Include(b => b.User)
-            .Include(b => b.Court)
-            .Include(b => b.Comments)
-            .Where(b => !b.IsDeleted )
-            .ToListAsync();
+            var bookings = await _repository.GetAll();
 
             var model = bookings.Select(BookingViewModel.FromEntity).ToList();
             
