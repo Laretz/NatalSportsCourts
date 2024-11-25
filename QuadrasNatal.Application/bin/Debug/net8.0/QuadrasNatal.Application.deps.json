@@ -561,7 +561,10 @@
       },
       "QuadrasNatal.Core/1.0.0": {
         "runtime": {
-          "QuadrasNatal.Core.dll": {}
+          "QuadrasNatal.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "QuadrasNatal.Infrastructure/1.0.0": {
@@ -570,7 +573,10 @@
           "QuadrasNatal.Core": "1.0.0"
         },
         "runtime": {
-          "QuadrasNatal.Infrastructure.dll": {}
+          "QuadrasNatal.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

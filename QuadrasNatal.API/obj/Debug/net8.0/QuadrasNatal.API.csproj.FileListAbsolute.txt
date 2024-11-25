@@ -199,7 +199,6 @@ C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Deb
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\renat\3D Objects\workspace\0.2 Projects\Quadra\QuadrasNatal.API\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll

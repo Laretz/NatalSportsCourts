@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuadrasNatal.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dba43b8e800bae3a56cc983cfcae558684101a8c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbb44707846a9a564075ec88342254d023ca4821")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuadrasNatal.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuadrasNatal.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
